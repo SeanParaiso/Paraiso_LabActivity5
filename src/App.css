@@ -1,38 +1,177 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.card-body h1 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 600;
+  color: purple;
+}
+
+.form {
+  display: flex;
+}
+.form select {
+  border: 1px solid purple;
+  border-radius: 10px;
+  color: purple;
+  font-family: "Poppins", sans-serif;
+}
+
+.addBtn {
+  font-family: "Poppins", sans-serif;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: purple;
+}
+
+.addBtn:hover {
+  background-color: purple;
+}
+.addBtn:hover {
+  color: #ffffff;
+}
+.card-body h6 {
+  font-weight: 300;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.closeBtn {
+  border-radius: 5px;
+  border: 1px solid red;
+  margin-left: 5px;
+}
+.closeBtn:hover {
+  background-color: red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bi-x {
+  color: red;
+}
+.closeBtn:hover .bi-x {
+  color: #ffffff;
+}
+.nav-pills a {
+  color: purple;
+}
+.todo-nav {
+  margin-top: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todo-list {
+  margin: 10px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-list .todo-item {
+  padding: 15px;
+  margin: 5px 0;
+  border-radius: 0;
+  background: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-item span {
+  margin-left: 10px;
+  font-family: "Poppins", sans-serif;
+}
+.todo-list.only-active .todo-item.complete {
+  display: none;
+}
+
+.todo-list.only-active .todo-item:not(.complete) {
+  display: block;
+}
+
+.todo-list.only-complete .todo-item:not(.complete) {
+  display: none;
+}
+
+.todo-list.only-complete .todo-item.complete {
+  display: block;
+}
+
+.todo-list .todo-item.complete span {
+  text-decoration: line-through;
+}
+
+.remove-todo-item {
+  color: #ccc;
+  visibility: hidden;
+}
+
+.remove-todo-item:hover {
+  color: #5f5f5f;
+}
+
+.todo-item:hover .remove-todo-item {
+  visibility: visible;
+}
+
+div.checker {
+  width: 20px;
+  height: 20px;
+}
+
+div.checker input,
+div.checker span {
+  width: 20px;
+  height: 20px;
+}
+
+div.checker span {
+  display: -moz-inline-box;
+  display: inline-block;
+  zoom: 1;
+  text-align: center;
+  background-position: 0 -260px;
+}
+
+div.checker,
+div.checker input,
+div.checker span {
+  width: 23px;
+  height: 23px;
+}
+
+div.checker,
+div.radio,
+div.uploader {
+  position: relative;
+}
+
+div.button,
+div.button *,
+div.checker,
+div.checker *,
+div.radio,
+div.radio *,
+div.selector,
+div.selector *,
+div.uploader,
+div.uploader * {
+  margin: 0;
+  padding: 0;
+}
+
+div.button,
+div.checker,
+div.radio,
+div.selector,
+div.uploader {
+  display: -moz-inline-box;
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+}
+
+.card {
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 2px solid;
+  background: #fff;
+  border-radius: calc(0.15rem - 1px);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.nav-item {
+  text-decoration: none;
 }
