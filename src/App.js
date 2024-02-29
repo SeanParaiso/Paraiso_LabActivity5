@@ -17,8 +17,8 @@ function App() {
     <div className="container">
       <div className="card card-white">
         <div className="card-body">
-          <h1>Gawin mo to</h1>
-          <h6>mga dapat mong gawin haha</h6>
+          <h1>Gawin mo to!</h1>
+          <h6>mga dapat mong gawin 💗</h6>
           <Form onAddItem={handleAddItem} />
 
           <ul className="nav nav-pills todo-nav">
