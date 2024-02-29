@@ -32,7 +32,7 @@ function Form({ onAddItem }) {
         placeholder="New Task..."
       />
       <span>
-        <button className="addBtn">Sige</button>
+        <button className="addBtn">Add</button>
       </span>
     </form>
   );
