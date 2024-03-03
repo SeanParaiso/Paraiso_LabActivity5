@@ -13,7 +13,7 @@ function Form({ onAddItem }) {
     console.log(newItem);
     setName("");
     setQuantity(1);
-    onAddItem(newItem);
+    onAddItem(newItem); //accesses the handleAddItem function sa app component
   }
   return (
     <form className="form" onSubmit={handleSubmit}>
