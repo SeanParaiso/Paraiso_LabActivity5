@@ -13,6 +13,10 @@ function App() {
     //function that handles the add item
     setItems((items) => [...items, item]); //this line of code updates the state by adding a new item to the existing "items" array.
   }
+
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
   return (
     <div className="container">
       <div className="card card-white">
@@ -24,7 +28,7 @@ function App() {
           <ul className="nav nav-pills todo-nav">
             <NavLink />
           </ul>
-          <TodoList items={items} />
+          <TodoList items={items} onDeleteItem={handleDeleteItem} />
         </div>
       </div>
     </div>
