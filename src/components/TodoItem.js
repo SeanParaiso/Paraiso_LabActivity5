@@ -2,16 +2,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
-function TodoItem({ todoList }) {
+function TodoItem({ todoList, onDeleteItem, onCheckedItem }) {
   return (
     <div className="todo-item">
       <div className="checker">
         <span className="span">
-          <input className="checkbox" type="checkbox" />
+          <input
+            type="checkbox"
+            className="checkbox"
+            onClick={() => onCheckedItem(todoList.id)}
+          ></input>
         </span>
       </div>
-      <button className="closeBtn">
-        {" "}
+      <button className="closeBtn" onClick={() => onDeleteItem(todoList.id)}>
         <i className="bi bi-x"></i>
       </button>
       <span>{todoList.quantity + " " + todoList.name}</span>

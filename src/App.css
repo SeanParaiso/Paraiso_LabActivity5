@@ -17,7 +17,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-.addBtn {
+.addBtn,
+.clearBtn {
   font-family: "Poppins", sans-serif;
   border: 1px solid;
   border-radius: 10px;
@@ -25,12 +26,12 @@
   color: purple;
 }
 
-.addBtn:hover {
+.addBtn:hover,
+.clearBtn:hover {
   background-color: purple;
-}
-.addBtn:hover {
   color: #ffffff;
 }
+
 .card-body h6 {
   font-weight: 300;
   text-align: center;
@@ -48,7 +49,23 @@
 .bi-x {
   color: red;
 }
-.closeBtn:hover .bi-x {
+.checkBtn {
+  border-radius: 5px;
+  border: 1px solid purple;
+}
+.checkBtn:hover {
+  border-radius: 5px;
+  border: 1px solid purple;
+  background-color: purple;
+}
+.checkBtn .bi-check {
+  color: purple;
+}
+.checkBtn:hover .bi-check {
+  color: #ffffff;
+}
+
+.chec .closeBtn:hover .bi-x {
   color: #ffffff;
 }
 .nav-pills a {

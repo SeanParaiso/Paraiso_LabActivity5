@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 
 function Form({ onAddItem }) {
   const [name, setName] = useState(""); //we can only change the value of the name using the setter (setName)
@@ -9,7 +9,7 @@ function Form({ onAddItem }) {
 
     //form validation
     if (!name) return; //pag walang name edi di maga-accept
-    const newItem = { name, quantity, isChecked: false, id: Date.now }; //nandito an yung new added item
+    const newItem = { name, quantity, isChecked: false, id: Date.now() }; //nandito an yung new added item
     console.log(newItem);
     setName("");
     setQuantity(1);

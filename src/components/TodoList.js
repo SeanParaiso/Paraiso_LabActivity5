@@ -9,11 +9,16 @@ import TodoItem from "./TodoItem";
 //   { id: 5, quantity: "5", name: "Magmaktol", isChecked: false },
 // ];
 
-function TodoList({ items }) {
+function TodoList({ items, onDeleteItem, onCheckedItem }) {
   return (
     <div className="todo-list">
       {items.map((item) => (
-        <TodoItem todoList={item} key={item.name} />
+        <TodoItem
+          todoList={item}
+          key={item.id}
+          onDeleteItem={onDeleteItem}
+          onCheckedItem={onCheckedItem}
+        />
       ))}
     </div>
   );
