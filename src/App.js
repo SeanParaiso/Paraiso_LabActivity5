@@ -2,7 +2,6 @@ import "./App.css";
 import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
 import TodoList from "./components/TodoList";
-import NavLink from "./components/NavLink";
 import Form from "./components/Form";
 import { useState } from "react";
 import React from "react";
@@ -12,8 +11,7 @@ function App() {
   const [items, setItems] = useState([]);
 
   function handleAddItem(item) {
-    //function that handles the add item
-    setItems((items) => [...items, item]); //this line of code updates the state by adding a new item to the existing "items" array.
+    setItems((items) => [...items, item]);
   }
 
   function handleClearList() {
@@ -36,6 +34,35 @@ function App() {
       )
     );
   }
+
+  function sortAlphaDown() {
+    const sortedItems = [...items].sort((a, b) => a.name.localeCompare(b.name));
+    setItems(sortedItems);
+  }
+
+  function sortAlphaUp() {
+    const sortedItems = [...items].sort((a, b) => b.name.localeCompare(a.name));
+    setItems(sortedItems);
+  }
+
+  function sortDone() {
+    const sortedItems = [...items].sort((a, b) => {
+      if (a.isChecked && !b.isChecked) return 1;
+      if (!a.isChecked && b.isChecked) return -1;
+      return 0;
+    });
+    setItems(sortedItems);
+  }
+
+  function handleEditItem(id, newName, newQuantity) {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id
+          ? { ...item, name: newName, quantity: newQuantity }
+          : item
+      )
+    );
+  }
   return (
     <div className="container">
       <div className="card card-white">
@@ -43,14 +70,21 @@ function App() {
           <h1>Gawin mo to!</h1>
           <h6>mga dapat mong gawin 💗</h6>
           <Form onAddItem={handleAddItem} />{" "}
-          {/* onAddItem is a prop that allows the Form component to access the handleAddItem function in this App component */}
-          <ul className="nav nav-pills todo-nav">
-            <NavLink />
-          </ul>
+          <ul className="nav nav-pills todo-nav"></ul>
+          <button className="sortBtn" onClick={sortDone}>
+            <i class="bi bi-sort-down-alt"></i>
+          </button>
+          <button className="sortBtn" onClick={sortAlphaDown}>
+            <i class="bi bi-sort-alpha-down"></i>
+          </button>
+          <button className="sortBtn" onClick={sortAlphaUp}>
+            <i class="bi bi-sort-alpha-up-alt"></i>
+          </button>
           <TodoList
             items={items}
             onDeleteItem={handleDeleteItem}
             onCheckedItem={handleCheckedItems}
+            onEditItem={handleEditItem}
           />
           <button className="clearBtn" onClick={handleClearList}>
             Clear

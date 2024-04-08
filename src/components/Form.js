@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useState } from "react";
 
 function Form({ onAddItem }) {
   const [name, setName] = useState(""); //we can only change the value of the name using the setter (setName)

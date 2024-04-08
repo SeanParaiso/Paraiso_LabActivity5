@@ -10,7 +10,8 @@
 .form {
   display: flex;
 }
-.form select {
+.form select,
+.editMode select {
   border: 1px solid purple;
   border-radius: 10px;
   color: purple;
@@ -18,7 +19,8 @@
 }
 
 .addBtn,
-.clearBtn {
+.clearBtn,
+.saveBtn {
   font-family: "Poppins", sans-serif;
   border: 1px solid;
   border-radius: 10px;
@@ -27,7 +29,8 @@
 }
 
 .addBtn:hover,
-.clearBtn:hover {
+.clearBtn:hover,
+.saveBtn:hover {
   background-color: purple;
   color: #ffffff;
 }
@@ -46,6 +49,20 @@
   background-color: red;
 }
 
+.sortBtn,
+.editBtn {
+  border-radius: 5px;
+  color: purple;
+  border: 1px solid purple;
+  padding: 2px 5px;
+  margin: 5px;
+}
+
+.sortBtn:hover,
+.editBtn:hover {
+  color: #ffffff;
+  background-color: purple;
+}
 .bi-x {
   color: red;
 }
