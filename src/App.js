@@ -14,6 +14,14 @@ function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleCheckedItems(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, isChecked: !item.isChecked } : item
+      )
+    );
+  }
+
   function handleClearList() {
     const confirmed = window.confirm(
       "Are you sure you want to clear the list?"
@@ -25,14 +33,6 @@ function App() {
 
   function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
-  }
-
-  function handleCheckedItems(id) {
-    setItems((items) =>
-      items.map((item) =>
-        item.id === id ? { ...item, isChecked: !item.isChecked } : item
-      )
-    );
   }
 
   function sortAlphaDown() {
@@ -65,21 +65,24 @@ function App() {
   }
   return (
     <div className="container">
-      <div className="card card-white">
+      <div className="card">
         <div className="card-body">
-          <h1>Gawin mo to!</h1>
-          <h6>mga dapat mong gawin 💗</h6>
-          <Form onAddItem={handleAddItem} />{" "}
+          <h1>To Do list</h1>
+
+          <Form onAddItem={handleAddItem} />
           <ul className="nav nav-pills todo-nav"></ul>
-          <button className="sortBtn" onClick={sortDone}>
-            <i class="bi bi-sort-down-alt"></i>
-          </button>
-          <button className="sortBtn" onClick={sortAlphaDown}>
-            <i class="bi bi-sort-alpha-down"></i>
-          </button>
-          <button className="sortBtn" onClick={sortAlphaUp}>
-            <i class="bi bi-sort-alpha-up-alt"></i>
-          </button>
+          <div className="sorts">
+            <button className="sort" onClick={sortDone}>
+              Sort Completed
+            </button>
+            <button className="sort" onClick={sortAlphaDown}>
+              Sort A to Z
+            </button>
+            <button className="sort" onClick={sortAlphaUp}>
+              Sort Z to A
+            </button>
+          </div>
+
           <TodoList
             items={items}
             onDeleteItem={handleDeleteItem}
@@ -90,8 +93,8 @@ function App() {
             Clear
           </button>
         </div>
+        <Footer items={items} />
       </div>
-      <Footer items={items} />
     </div>
   );
 }

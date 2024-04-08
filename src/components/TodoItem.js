@@ -22,7 +22,7 @@ function TodoItem({ todoList, onDeleteItem, onCheckedItem, onEditItem }) {
   };
 
   return (
-    <div className="todo-item">
+    <div className="todoItem">
       <div className="checker">
         <span className="span">
           <input
@@ -32,17 +32,17 @@ function TodoItem({ todoList, onDeleteItem, onCheckedItem, onEditItem }) {
           ></input>
         </span>
       </div>
-      <button className="closeBtn" onClick={() => onDeleteItem(todoList.id)}>
-        <i className="bi bi-x"></i>
+      <button className="deletebtn" onClick={() => onDeleteItem(todoList.id)}>
+        <i class="bi bi-trash"></i>
       </button>
       <button className="editBtn" onClick={() => onEditItem(todoList.id)}>
-        <i class="bi bi-pencil" onClick={() => setEditMode(true)}></i>
+        <i class="bi bi-pencil-square" onClick={() => setEditMode(true)}></i>
       </button>
 
       {editMode ? (
         <div className="editMode">
           <select value={newQuantity} onChange={handleQuantityChange}>
-            {Array.from({ length: 50 }, (_, i) => i + 1).map((num) => (
+            {Array.from({ length: 25 }, (_, i) => i + 1).map((num) => (
               <option value={num} key={num}>
                 {num}
               </option>
@@ -59,9 +59,8 @@ function TodoItem({ todoList, onDeleteItem, onCheckedItem, onEditItem }) {
           </button>
         </div>
       ) : (
-        <span>{todoList.quantity + " " + todoList.name}</span>
+        <span>{todoList.quantity + " -  " + todoList.name}</span>
       )}
-      <a href="" className="float-right remove-todo-item"></a>
     </div>
   );
 }

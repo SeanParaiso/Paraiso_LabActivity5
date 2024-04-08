@@ -3,12 +3,11 @@ import React from "react";
 function Footer({ items }) {
   let itemCount = items.length;
   let completedItems = items.filter((item) => item.isChecked).length;
-  let percentage = Math.round((completedItems / itemCount) * 100);
   return (
-    <div>
+    <div className="footer-cont">
       <p>
         You have {itemCount} item in your list, and you already completed{" "}
-        {completedItems}, {percentage}%.
+        {completedItems}.
       </p>
     </div>
   );

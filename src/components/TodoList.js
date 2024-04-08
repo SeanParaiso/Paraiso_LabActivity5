@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 
 function TodoList({ items, onDeleteItem, onCheckedItem, onEditItem }) {
   return (
-    <div className="todo-list">
+    <div className="todoList">
       {items.map((item) => (
         <TodoItem
           todoList={item}
